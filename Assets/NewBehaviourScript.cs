@@ -6,11 +6,17 @@ public class NewBehaviourScript : MonoBehaviour
 {
     public bool onGround;
     public float fuerza_x;
+    public float fuerza_y;
+    public float fuerza_z;
+
     // Start is called before the first frame update
     void Start()
     {
        onGround = false; 
        fuerza_x=0;
+       fuerza_y=0;
+       fuerza_z=0;
+       
     }
 
     // Update is called once per frame
@@ -27,7 +33,7 @@ public class NewBehaviourScript : MonoBehaviour
       if(Input.GetKeyDown(KeyCode.A))
       {
       if (onGround){
-        Vector3 fuerza = new Vector3(fuerza_x, 500, 0);
+        Vector3 fuerza = new Vector3(fuerza_x, fuerza_z, fuerza_y);
         GetComponent<Rigidbody>().AddForce(fuerza);
       }
       }
@@ -39,6 +45,28 @@ public class NewBehaviourScript : MonoBehaviour
       {
         fuerza_x = fuerza_x + 10;
       }
+
+      if(Input.GetKeyDown(KeyCode.Q))
+      {
+         fuerza_y = fuerza_y - 10;
+      }
+      if(Input.GetKeyDown(KeyCode.E))
+      {
+        fuerza_y = fuerza_y + 10;
+      }
+
+      if(Input.GetKeyDown(KeyCode.S))
+      {
+         fuerza_z = fuerza_z - 10;
+      }
+      if(Input.GetKeyDown(KeyCode.W))
+      {
+        fuerza_z = fuerza_z + 10;
+      }
+
+
+
+
     
 
     }
